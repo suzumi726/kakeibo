@@ -1,5 +1,9 @@
   <div class="contents row" >
     <% @outgoings.each do |outgoing| %>
       <p><%= outgoing.item %></p>
+      <p><%= outgoing.price %></p>
+      <p><%= outgoing.place %></p>
+      <p><%= outgoing.date %></p>
+      <hr>
     <% end %>
   </div>

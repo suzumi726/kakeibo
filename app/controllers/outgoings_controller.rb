@@ -3,12 +3,11 @@ class OutgoingsController < ApplicationController
   #ログインしてないと/outgoings/newにアクセスできない
 
   def index
-    @outgoings = Outgoing.all.order("created_at DESC")
-    # 支出の一覧を最新順で表示
+    @outgoings = Outgoing.all.order("date DESC")
+    # 支出の一覧を最新順(購入日順)で表示
   end
 
   def new
-
   end
 
   def create
@@ -17,7 +16,7 @@ class OutgoingsController < ApplicationController
 
   private
   def outgoing_params
-    params.permit(:item, :price, :date)
+    params.permit(:item, :price, :place, :date)
   end
 
   def move_to_index
