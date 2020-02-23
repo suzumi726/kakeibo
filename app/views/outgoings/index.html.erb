@@ -1,11 +1,14 @@
   <div class="contents row" >
     <% @outgoings.each do |outgoing| %>
-      <p><%= outgoing.item %></p>
-      <p><%= outgoing.price %></p>
-      <p><%= outgoing.place %></p>
-      <p><%= outgoing.date %></p>
+      <p>品目： <%= outgoing.item %></p>
+      <p>金額： <%= outgoing.price %>円</p>
+      <p>購入場所： <%= outgoing.place %></p>
+      <p>購入日： <%= outgoing.date %></p>
       <div class="more">
         <ul class="more_list">
+          <li>
+            <%= link_to '詳細', "/outgoings/#{outgoing.id}", method: :get %>
+          </li>
           <li>
             <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", method: :get %>
           </li>

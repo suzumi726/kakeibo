@@ -1,5 +1,5 @@
 class OutgoingsController < ApplicationController
-  before_action :move_to_index, except: :index
+  before_action :move_to_index, except: [:index, :show]
   #ログインしてないと/outgoings/newにアクセスできない
 
   def index
@@ -26,6 +26,10 @@ class OutgoingsController < ApplicationController
   def update
     outgoing = Outgoing.find(params[:id])
     outgoing.update(outgoing_params)
+  end
+
+  def show
+    @outgoing = Outgoing.find(params[:id])
   end
 
   private
