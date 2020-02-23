@@ -1,4 +1,16 @@
   <div class="contents row" >
+  <br>
+    <%= search_form_for @q do |f| %>
+      <%= f.label :item_or_place, "キーワード" %>
+      <%= f.search_field :item_or_place_cont %>
+
+      <%= f.label :price, "金額" %>
+      <%= f.number_field :price_gteq %>以上〜
+      <%= f.number_field :price_lt %>未満
+
+      <%= f.submit "検索" %>
+    <% end %>
+<br>
     <% @outgoings.each do |outgoing| %>
       <p>品目： <%= outgoing.item %></p>
       <p>金額： <%= outgoing.price %>円</p>

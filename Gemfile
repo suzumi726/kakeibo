@@ -65,3 +65,4 @@ gem 'pry-rails'
 gem 'compass-rails', '3.1.0'
 gem 'sprockets', '3.7.2'
 gem 'devise' #ログイン機能
+gem 'ransack' #検索機能

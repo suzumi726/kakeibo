@@ -22,5 +22,8 @@
       <li>
         <%= link_to '削除', href="/outgoings/#{@outgoing.id}", method: :delete %>
       </li>
+      <li>
+        <%= link_to '支出一覧に戻る', href="/outgoings", method: :get %>
+      </li>
     </ul>
 </div>
