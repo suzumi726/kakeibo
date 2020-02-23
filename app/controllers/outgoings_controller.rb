@@ -14,6 +14,11 @@ class OutgoingsController < ApplicationController
     Outgoing.create(outgoing_params)
   end
 
+  def destroy
+    outgoing = Outgoing.find(params[:id])
+    outgoing.destroy
+  end
+
   private
   def outgoing_params
     params.permit(:item, :price, :place, :date)
