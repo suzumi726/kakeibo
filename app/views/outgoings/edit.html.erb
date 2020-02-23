@@ -1,0 +1,11 @@
+  <div class="contents row">
+    <%= form_tag("/outgoings/#{@outgoing.id}", method: :patch ) do %>
+      <h3>
+        編集する
+      </h3>
+      <p>品目</p><input name="item" placeholder="<%= @outgoing.item %>" rows="10"></input>
+      <p>金額</p><input name="price" placeholder="<%= @outgoing.price %>" rows="10"></input>
+      <p>購入場所</p><input name="place" placeholder="<%= @outgoing.place %>" rows="10"></input>
+      <input type="submit" value="SENT">
+    <% end %>
+  </div>

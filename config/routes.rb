@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get 'outgoings/new' => 'outgoings#new'
   post 'outgoings' => 'outgoings#create'
   delete 'outgoings/:id' => 'outgoings#destroy'
+  patch 'outgoings/:id' => 'outgoings#update'
+  get 'outgoings/:id/edit' => 'outgoings#edit'
 end

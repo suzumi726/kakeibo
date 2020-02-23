@@ -7,6 +7,9 @@
       <div class="more">
         <ul class="more_list">
           <li>
+            <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", method: :get %>
+          </li>
+          <li>
             <%= link_to '削除', "/outgoings/#{outgoing.id}", method: :delete %>
           </li>
         </ul>
