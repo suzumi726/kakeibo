@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  root 'outgoings#index' #ルートパスにアクセスした時にindexアクション
   get 'outgoings' => 'outgoings#index'
   get 'outgoings/new' => 'outgoings#new' #新規支出登録
   post 'outgoings' => 'outgoings#create'
