@@ -21,8 +21,8 @@
     購入日： <%= outgoing.date %>
     <br>
     <br>
-    <%= link_to '詳細', "/outgoings/#{outgoing.id}", class: 'btn btn-outline-secondary', style: 'display:inline;' %>
-    <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", class: 'btn btn-outline-secondary', style: 'display:inline;' %>
+    <%= link_to '詳細', "/outgoings/#{outgoing.id}", class: 'btn btn-outline-secondary' %>
+    <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", class: 'btn btn-outline-secondary' %>
     <%= link_to '削除', "/outgoings/#{outgoing.id}", method: :delete, class: 'btn btn-outline-secondary' %>
     </a>
   <% end %>

@@ -1,29 +1,27 @@
-<div class ="contents row">
 <br>
-    <ul>
-      <li>
-        <p>品目：<%= @outgoing.item %></p>
-      </li>
-      <li>
-        <p>金額：<%= @outgoing.price %>円</p>
-      </li>
-      <li>
-        <p>購入場所：<%= @outgoing.place %></p>
-      </li>
-      <li>
-        <p>購入日：<%= @outgoing.date %></p>
-      </li>
-      <br>
-    </ul>
-    <ul class="more_list">
-      <li>
-        <%= link_to '編集', href="/outgoings/#{@outgoing.id}/edit", method: :get %>
-      </li>
-      <li>
-        <%= link_to '削除', href="/outgoings/#{@outgoing.id}", method: :delete %>
-      </li>
-      <li>
-        <%= link_to '支出一覧に戻る', href="/outgoings", method: :get %>
-      </li>
-    </ul>
-</div>
+<ul>
+  <li>
+    <p>品目：<%= @outgoing.item %></p>
+  </li>
+  <li>
+    <p>金額：<%= @outgoing.price %>円</p>
+  </li>
+  <li>
+    <p>購入場所：<%= @outgoing.place %></p>
+  </li>
+  <li>
+    <p>購入日：<%= @outgoing.date %></p>
+  </li>
+</ul>
+<br>
+<ul style="list-style: none;">
+  <li>
+    <%= link_to '編集', href="/outgoings/#{@outgoing.id}/edit", method: :get %>
+  </li>
+  <li>
+    <%= link_to '削除', href="/outgoings/#{@outgoing.id}", method: :delete %>
+  </li>
+  <li>
+    <%= link_to '支出一覧に戻る', href="/outgoings", method: :get %>
+  </li>
+</ul>

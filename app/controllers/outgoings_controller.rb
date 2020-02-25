@@ -1,7 +1,6 @@
 class OutgoingsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
-  #ログインしてないと/outgoings/newにアクセスできない
-  # before_action :authenticate_user!, only: [:new]
+  before_action :move_to_sign_in
+  #ログインしてないとログイン画面にアクセス
 
   def index
     @outgoings = Outgoing.all.order(date: "DESC")
@@ -12,6 +11,7 @@ class OutgoingsController < ApplicationController
   end
 
   def new
+    #新規支出登録
   end
 
   def create
@@ -21,19 +21,23 @@ class OutgoingsController < ApplicationController
   def destroy
     outgoing = Outgoing.find(params[:id])
     outgoing.destroy
+    #支出の削除
   end
 
   def edit
     @outgoing = Outgoing.find(params[:id])
+    #支出の編集
   end
 
   def update
     outgoing = Outgoing.find(params[:id])
     outgoing.update(outgoing_params)
+    #支出の更新
   end
 
   def show
     @outgoing = Outgoing.find(params[:id])
+    #支出の詳細
   end
 
   private
@@ -41,12 +45,8 @@ class OutgoingsController < ApplicationController
     params.permit(:item, :price, :place, :date)
   end
 
-  # def move_to_index
-  #   redirect_to action: new unless user_signed_in?
-  # end
-
-  def move_to_index
-    redirect_to action: index unless user_signed_in?
+  def move_to_sign_in
+    redirect_to controller: 'devise/sessions', action: 'new' unless user_signed_in?
   end
-  #リダイレクト用のメソッド定義
+  #リダイレクト用のメソッド定義。ログインしてないとdevise/sessionsコントローラのnewアクションに
 end
