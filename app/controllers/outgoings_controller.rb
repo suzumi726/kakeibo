@@ -4,7 +4,7 @@ class OutgoingsController < ApplicationController
   # before_action :authenticate_user!, only: [:new]
 
   def index
-    @outgoings = Outgoing.all.order("date DESC")
+    @outgoings = Outgoing.all.order(date: "DESC")
     # 支出の一覧を最新順(購入日順)で表示
     @q = Outgoing.ransack(params[:q])
     @outgoings = @q.result(distinct: true)
