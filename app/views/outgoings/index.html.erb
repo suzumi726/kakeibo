@@ -21,13 +21,9 @@
     購入日： <%= outgoing.date %>
     <br>
     <br>
-    <%= button_to "インデックス", {controller: 'outgoings', action: 'new'}, {method: :get, class: "btn btn-outline-secondary"} %>
-    <button type="button" class="btn btn-outline-secondary">詳細</button>
-    <button type="button" class="btn btn-outline-secondary">編集</button>
-    <button type="button" class="btn btn-outline-secondary">削除</button>
-    <%= link_to '詳細', "/outgoings/#{outgoing.id}", method: :get %>
-    <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", method: :get %>
-    <%= link_to '削除', "/outgoings/#{outgoing.id}", method: :delete %>
+    <%= link_to '詳細', "/outgoings/#{outgoing.id}", class: 'btn btn-outline-secondary', style: 'display:inline;' %>
+    <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", class: 'btn btn-outline-secondary', style: 'display:inline;' %>
+    <%= link_to '削除', "/outgoings/#{outgoing.id}", method: :delete, class: 'btn btn-outline-secondary' %>
     </a>
   <% end %>
 </div>
@@ -37,6 +33,12 @@
 =begin%>
 
 <%= button_to "削除", {controller: 'outgoings', action: 'destroy'}, {method: :delete, class: "btn btn-outline-secondary"} %>
+    <button type="button" class="btn btn-outline-secondary">詳細</button>
+    <button type="button" class="btn btn-outline-secondary">編集</button>
+    <button type="button" class="btn btn-outline-secondary">削除</button>
+    <%= button_to "インデックス", {controller: 'outgoings', action: 'new'}, {method: :get, class: "btn btn-outline-secondary"} %>
+    <%= button_to "インデックス", {controller: 'outgoings', action: 'new'}, {method: :get, class: "btn btn-outline-secondary"} %>
+    <%= button_to "インデックス", {controller: 'outgoings', action: 'new'}, {method: :get, class: "btn btn-outline-secondary"} %>
 
 <% @outgoings.each do |outgoing| %>
   <p>品目： <%= outgoing.item %></p>
