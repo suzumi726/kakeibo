@@ -1,6 +1,7 @@
 class OutgoingsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   #ログインしてないと/outgoings/newにアクセスできない
+  # before_action :authenticate_user!, only: [:new]
 
   def index
     @outgoings = Outgoing.all.order("date DESC")
@@ -39,6 +40,10 @@ class OutgoingsController < ApplicationController
   def outgoing_params
     params.permit(:item, :price, :place, :date)
   end
+
+  # def move_to_index
+  #   redirect_to action: new unless user_signed_in?
+  # end
 
   def move_to_index
     redirect_to action: index unless user_signed_in?

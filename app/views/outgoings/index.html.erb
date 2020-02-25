@@ -1,35 +1,60 @@
-  <div class="contents row" >
-  <br>
-    <%= search_form_for @q do |f| %>
-      <%= f.label :item_or_place, "キーワード" %>
-      <%= f.search_field :item_or_place_cont %>
 
-      <%= f.label :price, "金額" %>
-      <%= f.number_field :price_gteq %>以上〜
-      <%= f.number_field :price_lt %>未満
-
-      <%= f.submit "検索" %>
-    <% end %>
 <br>
-    <% @outgoings.each do |outgoing| %>
-      <p>品目： <%= outgoing.item %></p>
-      <p>金額： <%= outgoing.price %>円</p>
-      <p>購入場所： <%= outgoing.place %></p>
-      <p>購入日： <%= outgoing.date %></p>
-      <div class="more">
-        <ul class="more_list">
-          <li>
-            <%= link_to '詳細', "/outgoings/#{outgoing.id}", method: :get %>
-          </li>
-          <li>
-            <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", method: :get %>
-          </li>
-          <li>
-            <%= link_to '削除', "/outgoings/#{outgoing.id}", method: :delete %>
-          </li>
-        </ul>
-      </div>
-      <hr>
-    <% end %>
+<br>
+<%= search_form_for @q do |f| %>
+  <%= f.label :item_or_place, "　キーワード" %>
+  <%= f.search_field :item_or_place_cont %>
+  <%= f.label :price, "　　金額" %>
+  <%= f.number_field :price_gteq %> 円以上〜
+  <%= f.number_field :price_lt %> 円未満　
+
+  <%= f.submit "検索" %>
+<% end %>
+<br>
+<br>
+<div class="list-group">
+  <% @outgoings.each do |outgoing| %>
+    <a href="/outgoings/#{outgoing.id}" class="list-group-item list-group-item-action">
+    品目： <%= outgoing.item %><br>
+    金額： <%= outgoing.price %>円<br>
+    購入場所： <%= outgoing.place %><br>
+    購入日： <%= outgoing.date %>
+    <br>
+    <br>
+    <button type="button" class="btn btn-outline-secondary">詳細</button>
+    <button type="button" class="btn btn-outline-secondary">編集</button>
+    <button type="button" class="btn btn-outline-secondary">削除</button>
+    <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", method: :get %>
+    <%= link_to '削除', "/outgoings/#{outgoing.id}", method: :delete %>
+    </a>
+  <% end %>
+</div>
+<br>
+
+<%
+=begin%>
+<% @outgoings.each do |outgoing| %>
+  <p>品目： <%= outgoing.item %></p>
+  <p>金額： <%= outgoing.price %>円</p>
+  <p>購入場所： <%= outgoing.place %></p>
+  <p>購入日： <%= outgoing.date %></p>
+  <div class="more">
+  <ul class="more_list">
+  <li>
+  <%= link_to '詳細', "/outgoings/#{outgoing.id}", method: :get %>
+  </li>
+  <li>
+  <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", method: :get %>
+  </li>
+  <li>
+  <%= link_to '削除', "/outgoings/#{outgoing.id}", method: :delete %>
+  </li>
+  </ul>
   </div>
+  <hr>
+<% end %> 
+<%
+=end%>
+
+
 
