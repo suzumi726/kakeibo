@@ -30,8 +30,9 @@ class OutgoingsController < ApplicationController
   end
 
   def update
-    outgoing = Outgoing.find(params[:id])
-    outgoing.update(outgoing_params)
+    @outgoing = Outgoing.find(params[:id])
+    @outgoing.update(outgoing_params)
+    redirect_to("/outgoings")
     #支出の更新
   end
 
