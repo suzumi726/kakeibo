@@ -4,13 +4,14 @@
       編集する
     </h3>
     <p>品目</p>
-    <input name="item" type="string" placeholder="<%= @outgoing.item %>" rows="10" value="<%= @outgoing.item %>">
+    <input name="item" type="string" rows="10" value="<%= @outgoing.item %>" class="form-control">
     <p>金額</p>
-    <input name="price" type="integer" placeholder="<%= @outgoing.price %>" rows="10" value="<%= @outgoing.price %>">
+    <input name="price" type="integer" rows="10" value="<%= @outgoing.price %>" class="form-control">
     <p>購入場所</p>
-    <input name="place" type="string" placeholder="<%= @outgoing.place %>" rows="10" value="<%= @outgoing.place %>">
+    <input name="place" type="string" rows="10" value="<%= @outgoing.place %>" class="form-control">
     <p>購入日</p>
-    <input name="date" type="date" placeholder="<%= @outgoing.date %>" rows="10" value="<%= @outgoing.date %>">
-    <input type="submit" value="SENT">
+    <input name="date" type="date" rows="10" value="<%= @outgoing.date %>" class="form-control">
+    <br>
+    <input type="submit" value="更新" class="btn btn-primary">
   <% end %> 
 </div>

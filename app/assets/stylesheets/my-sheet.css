@@ -7,6 +7,51 @@
   width: auto;
 }
 
-.btn {
+.show-btn {
+  text-align: center;
+}
 
+h3 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.index-search {
+  text-align: center;
+}
+
+#q_item_or_place_cont {
+  border-radius: 4px;
+}
+
+#q_price_gteq {
+  border-radius: 4px;
+}
+
+#q_price_lt {
+  border-radius: 4px;
+}
+
+.show-list {
+  width: 70%;
+  margin:0 auto;
+}
+
+#update-btn {
+  text-align: center;
+}
+
+#index-btn {
+  float: right;
+}
+
+#destroy-btn {
+  text-align: center;
+}
+
+.contents-center {
+  text-align: center;
 }

@@ -1,29 +1,19 @@
 <div class='contents'>
   <br>
-  <ul>
-    <li>
-      <p>品目：<%= @outgoing.item %></p>
-    </li>
-    <li>
-      <p>金額：<%= @outgoing.price %>円</p>
-    </li>
-    <li>
-      <p>購入場所：<%= @outgoing.place %></p>
-    </li>
-    <li>
-      <p>購入日：<%= @outgoing.date %></p>
-    </li>
-  </ul>
+  <div class="show-list">
+    <ul class="list-group">
+      <li class="list-group-item">　品目：<%= @outgoing.item %></li>
+      <li class="list-group-item">　金額：<%= @outgoing.price %>円</li>
+      <li class="list-group-item">　購入場所：<%= @outgoing.place %></li>
+      <li class="list-group-item">　購入日：<%= @outgoing.date %></li>
+    </ul>
+  </div>
   <br>
-  <ul style="list-style: none;">
-    <li>
-      <%= link_to '編集', href="/outgoings/#{@outgoing.id}/edit", method: :get %>
-    </li>
-    <li>
-      <%= link_to '削除', href="/outgoings/#{@outgoing.id}", method: :delete %>
-    </li>
-    <li>
-      <%= link_to '支出一覧に戻る', href="/outgoings", method: :get %>
-    </li>
-  </ul>
+  <div class="show-btn">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <%= link_to '編集', href="/outgoings/#{@outgoing.id}/edit", class: 'btn btn-secondary' %>
+      <%= link_to '削除', href="/outgoings/#{@outgoing.id}", method: :delete, class: 'btn btn-secondary', data: {confirm: '支出を削除します。よろしいですか？'} %>
+      <%= link_to '支出一覧に戻る', href="/outgoings", class: 'btn btn-secondary' %>
+    </div>
+  </div>
 </div>
