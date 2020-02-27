@@ -1,37 +1,39 @@
-<%= form_tag('/outgoings', method: :post) do %>
-  <br>
-  <h3>
-    支出を新規登録する
-  </h3>
-  <br>
-  <form>
-    <div class="form-group">
-      <label for="formGroupExampleInput">購入品目</label>
-      <input type="string" class="form-control" name="item" placeholder="品目">
-    </div>
-    <div class="form-group">
-      <label for="formGroupExampleInput2">購入金額</label>
-      <input type="integer" class="form-control" name="price" placeholder="金額">
-    </div>
-    <div class="form-group">
-      <label for="formGroupExampleInput2">購入場所</label>
-      <input type="string" class="form-control" name="place" placeholder="購入場所">
-    </div>
-    <div class="form-group">
-      <label for="formGroupExampleInput2">購入日</label>
-      <input type="date" class="form-control" name="date" placeholder="購入日">
-    </div>
-    <div class="form-group">
-      <input class="btn btn-primary" type="submit" value="登録">
-    </div>
+<div class='contents'>
+  <%= form_tag('/outgoings', method: :post) do %>
     <br>
-  </form>
-<% end %>
-<br>
+    <h3>
+      支出を新規登録する
+    </h3>
+    <br>
+    <form>
+      <div class="form-group">
+        <label for="formGroupExampleInput">購入品目</label>
+        <input type="string" class="form-control" name="item" placeholder="品目">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">購入金額</label>
+        <input type="integer" class="form-control" name="price" placeholder="金額">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">購入場所</label>
+        <input type="string" class="form-control" name="place" placeholder="購入場所">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">購入日</label>
+        <input type="date" class="form-control" name="date" placeholder="購入日">
+      </div>
+      <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="登録">
+      </div>
+      <br>
+    </form>
+  <% end %>
+  <br>
+</div>
 
- <%
+<%
 =begin%>
- データベースに追加されない NULLで追加される
+データベースに追加されない NULLで追加される
   <input placeholder="品目" type="string" name="item"><br>
   <input placeholder="金額" type="integer" name="price"><br>
   <input placeholder="購入場所" type="string" name="place"><br>

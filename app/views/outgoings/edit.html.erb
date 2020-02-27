@@ -1,14 +1,16 @@
-<%= form_tag("/outgoings/#{@outgoing.id}", method: :patch ) do %>
-  <h3>
-    編集する
-  </h3>
-  <p>品目</p>
-  <input name="item" type="string" placeholder="<%= @outgoing.item %>" rows="10" value="<%= @outgoing.item %>">
-  <p>金額</p>
-  <input name="price" type="integer" placeholder="<%= @outgoing.price %>" rows="10" value="<%= @outgoing.price %>">
-  <p>購入場所</p>
-  <input name="place" type="string" placeholder="<%= @outgoing.place %>" rows="10" value="<%= @outgoing.place %>">
-  <p>購入日</p>
-  <input name="date" type="date" placeholder="<%= @outgoing.date %>" rows="10" value="<%= @outgoing.date %>">
-  <input type="submit" value="SENT">
-<% end %> 
+<div class='contents'>
+  <%= form_tag("/outgoings/#{@outgoing.id}", method: :patch ) do %>
+    <h3>
+      編集する
+    </h3>
+    <p>品目</p>
+    <input name="item" type="string" placeholder="<%= @outgoing.item %>" rows="10" value="<%= @outgoing.item %>">
+    <p>金額</p>
+    <input name="price" type="integer" placeholder="<%= @outgoing.price %>" rows="10" value="<%= @outgoing.price %>">
+    <p>購入場所</p>
+    <input name="place" type="string" placeholder="<%= @outgoing.place %>" rows="10" value="<%= @outgoing.place %>">
+    <p>購入日</p>
+    <input name="date" type="date" placeholder="<%= @outgoing.date %>" rows="10" value="<%= @outgoing.date %>">
+    <input type="submit" value="SENT">
+  <% end %> 
+</div>

@@ -1,79 +1,71 @@
+<div class='contents'>
+  <br>
+  <br>
+  <%= search_form_for @q do |f| %>
+    <%= f.label :item_or_place, "　キーワード" %>
+    <%= f.search_field :item_or_place_cont %>
+    <%= f.label :price, "　　金額" %>
+    <%= f.number_field :price_gteq %> 円以上〜
+    <%= f.number_field :price_lt %> 円未満　
 
-<br>
-<br>
-<%= search_form_for @q do |f| %>
-  <%= f.label :item_or_place, "　キーワード" %>
-  <%= f.search_field :item_or_place_cont %>
-  <%= f.label :price, "　　金額" %>
-  <%= f.number_field :price_gteq %> 円以上〜
-  <%= f.number_field :price_lt %> 円未満　
+    <%= f.submit "検索" %>
 
-  <%= f.submit "検索" %>
+      
+  <% end %>
+  <br>
+  <br>
+  <div class="list-group">
+    <% @outgoings.order(date: :DESC).each do |outgoing| %>
+      <a class="list-group-item list-group-item-action">
+      品目： <%= outgoing.item %><br>
+      金額： <%= outgoing.price %>円<br>
+      購入場所： <%= outgoing.place %><br>
+      購入日： <%= outgoing.date %>
+      <br>
+      <br>
+      <%= link_to '詳細', "/outgoings/#{outgoing.id}", class: 'btn btn-outline-secondary' %>
+      <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", class: 'btn btn-outline-secondary' %>
+      <%= link_to '削除', "/outgoings/#{outgoing.id}", method: :delete, class: 'btn btn-outline-secondary', data: {confirm: 'Are you sure?'} %>
+      </a>
+    <% end %>
+  </div>
+  <br>
 
   <%
 =begin%>
- <% @outgoings.each do |@outgoing| %>
-    <% if @outgoing %>
-      <%= @outgoing %></td>
-    <% else %>
-      <p>検索結果がありません。</p>
-    <% end %> 
+ <%
+  =begin%>
+
+  <%= button_to "削除", {controller: 'outgoings', action: 'destroy'}, {method: :delete, class: "btn btn-outline-secondary"} %>
+      <button type="button" class="btn btn-outline-secondary">詳細</button>
+      <button type="button" class="btn btn-outline-secondary">編集</button>
+      <button type="button" class="btn btn-outline-secondary">削除</button>
+      <%= button_to "インデックス", {controller: 'outgoings', action: 'new'}, {method: :get, class: "btn btn-outline-secondary"} %>
+      <%= button_to "インデックス", {controller: 'outgoings', action: 'new'}, {method: :get, class: "btn btn-outline-secondary"} %>
+      <%= button_to "インデックス", {controller: 'outgoings', action: 'new'}, {method: :get, class: "btn btn-outline-secondary"} %>
+
+  <% @outgoings.each do |outgoing| %>
+    <p>品目： <%= outgoing.item %></p>
+    <p>金額： <%= outgoing.price %>円</p>
+    <p>購入場所： <%= outgoing.place %></p>
+    <p>購入日： <%= outgoing.date %></p>
+    <div class="more">
+    <ul class="more_list">
+    <li>
+    <%= link_to '詳細', "/outgoings/#{outgoing.id}", method: :get %>
+    </li>
+    <li>
+    <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", method: :get %>
+    </li>
+    <li>
+    <%= link_to '削除', "/outgoings/#{outgoing.id}", method: :delete %>
+    </li>
+    </ul>
+    </div>
+    <hr>
+  <% end %> 
+  <%
+  =end%> 
 <%
 =end%>
-    
-<% end %>
-<br>
-<br>
-<div class="list-group">
-  <% @outgoings.order(date: :DESC).each do |outgoing| %>
-    <a class="list-group-item list-group-item-action">
-    品目： <%= outgoing.item %><br>
-    金額： <%= outgoing.price %>円<br>
-    購入場所： <%= outgoing.place %><br>
-    購入日： <%= outgoing.date %>
-    <br>
-    <br>
-    <%= link_to '詳細', "/outgoings/#{outgoing.id}", class: 'btn btn-outline-secondary' %>
-    <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", class: 'btn btn-outline-secondary' %>
-    <%= link_to '削除', "/outgoings/#{outgoing.id}", method: :delete, class: 'btn btn-outline-secondary', data: {confirm: 'Are you sure?'} %>
-    </a>
-  <% end %>
 </div>
-<br>
-
-<%
-=begin%>
-
-<%= button_to "削除", {controller: 'outgoings', action: 'destroy'}, {method: :delete, class: "btn btn-outline-secondary"} %>
-    <button type="button" class="btn btn-outline-secondary">詳細</button>
-    <button type="button" class="btn btn-outline-secondary">編集</button>
-    <button type="button" class="btn btn-outline-secondary">削除</button>
-    <%= button_to "インデックス", {controller: 'outgoings', action: 'new'}, {method: :get, class: "btn btn-outline-secondary"} %>
-    <%= button_to "インデックス", {controller: 'outgoings', action: 'new'}, {method: :get, class: "btn btn-outline-secondary"} %>
-    <%= button_to "インデックス", {controller: 'outgoings', action: 'new'}, {method: :get, class: "btn btn-outline-secondary"} %>
-
-<% @outgoings.each do |outgoing| %>
-  <p>品目： <%= outgoing.item %></p>
-  <p>金額： <%= outgoing.price %>円</p>
-  <p>購入場所： <%= outgoing.place %></p>
-  <p>購入日： <%= outgoing.date %></p>
-  <div class="more">
-  <ul class="more_list">
-  <li>
-  <%= link_to '詳細', "/outgoings/#{outgoing.id}", method: :get %>
-  </li>
-  <li>
-  <%= link_to '編集', "/outgoings/#{outgoing.id}/edit", method: :get %>
-  </li>
-  <li>
-  <%= link_to '削除', "/outgoings/#{outgoing.id}", method: :delete %>
-  </li>
-  </ul>
-  </div>
-  <hr>
-<% end %> 
-<%
-=end%>
-
-
-
