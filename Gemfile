@@ -68,3 +68,7 @@ gem 'ransack' #検索機能
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+group :production do
+  gem 'rails_12factor'
+end #heroku
+gem 'mysql2', '0.5.2'
