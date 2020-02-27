@@ -13,7 +13,7 @@
 <br>
 <br>
 <div class="list-group">
-  <% @outgoings.each do |outgoing| %>
+  <% @outgoings.order(date: :DESC).each do |outgoing| %>
     <a class="list-group-item list-group-item-action">
     品目： <%= outgoing.item %><br>
     金額： <%= outgoing.price %>円<br>
