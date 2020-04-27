@@ -66,7 +66,7 @@ gem 'sprockets', '3.7.2'
 gem 'devise' #ログイン機能
 gem 'ransack' #検索機能
 
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 group :production do
   gem 'rails_12factor'
