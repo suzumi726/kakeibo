@@ -5,7 +5,7 @@ class OutgoingsController < ApplicationController
     @outgoings = Outgoing.order("date DESC")
     # 支出の一覧を最新順(購入日順)で表示
     @q = Outgoing.ransack(params[:q])
-    @outgoings = @q.result(distinct: true)
+    @outgoings = @q.result(distinct: true).page(params[:page]).per(10)
     #検索機能
   end
 
