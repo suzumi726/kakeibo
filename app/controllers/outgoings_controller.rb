@@ -2,11 +2,8 @@ class OutgoingsController < ApplicationController
   before_action :move_to_sign_in
   #ログインしてないとログイン画面にアクセス
   def index
-    @outgoings = Outgoing.order("date DESC")
-    # 支出の一覧を最新順(購入日順)で表示
-    @q = Outgoing.ransack(params[:q])
-    @outgoings = @q.result(distinct: true).page(params[:page]).per(10)
-    #検索機能
+    @q = Outgoing.ransack(params[:q]) #検索機能
+    @outgoings = @q.result(distinct: true).order("date DESC").page(params[:page]).per(10)
   end
 
   def new
