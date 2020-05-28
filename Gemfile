@@ -77,5 +77,7 @@ end #heroku
 gem 'mysql2', '0.5.2'
 
 gem 'kaminari' #ページネーション
+
 gem 'chartkick' #グラフ
+gem 'groupdate' #グラフの横軸をグラフごとに表示
 
